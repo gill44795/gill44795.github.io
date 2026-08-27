@@ -35,7 +35,6 @@ createPlatform(60,500,350,10, "lightgreen");
 createPlatform(400,500,10,300, "lightgreen");
 createPlatform(700,500,10,300, "lightgreen");
 createPlatform(700,500,350,10, "lightgreen");
-createCannon("left", 650, 1);
 createPlatform(490,630,10,10, "lightgreen");
 createCollectable("steve", 490, 600)
 createCollectable("diamond", 300, 170, 0.5, 0.7);
@@ -51,6 +50,7 @@ createPlatform(600,200,10,10, "lightgreen");
 createCannon("left", 300, 2000);
 createCollectable("steve", 590, 160)
 createCannon("left", 200, 3000);
+createCannon("left", 650, 0.1, 10000, 100, 600, 600, 10)
     // TODO 3 - Create Collectables
 
 
