@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(228, 5, 5);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -21,6 +21,9 @@
 
       .board {
         height: 100vh;
+        background-image:url ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR33zwQmNqO4MhnlJylcoNaO10af_8aOYfKNo0uFuFIq04rwqdKskuR-FzZ&s=10");
+        background-size: cover;
+        background-color: limegreen
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -49,7 +52,10 @@
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        var interval = setInterval(update, 50);
+        function endGame() {
+  clearInterval(interval);
+}
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -80,17 +86,18 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-      moveBoxTo(boardWidth);
+
       positionX = positionX + speed;
       moveBoxTo(positionX);
       if (positionX > boardWidth){
        speed *= -1;
-      positionX = speed + 3;
-      speed = 3 * points + 10;
-      }
       
+      }
+      if (positionX < 0)
+       speed *= -1;
           
         }
+      
 
         /**
          * This Function will be called each time the box is clicked.
@@ -104,11 +111,7 @@
         changeBoxText(points);
         points += 1;
         speed = 3 * points + 10;
-        if (positionX > boardWidth);
-
-        if (positionX > boardWidth) {
-       speed *= -1;
-      }
+      
 
 
         }
